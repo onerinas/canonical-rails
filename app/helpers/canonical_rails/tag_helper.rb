@@ -45,11 +45,11 @@ module CanonicalRails
       raw "#{canonical_protocol}#{host}#{port}#{path_without_html_extension}#{trailing_slash_config(force_trailing_slash)}#{whitelisted_query_string}"
     end
 
-    def canonical_path(force_trailing_slash = nil)
+    def canonical_path(force_trailing_slash = force_trailing_slash?)
       raw "#{path_without_html_extension}#{trailing_slash_config(force_trailing_slash)}#{whitelisted_query_string}"
     end
 
-    def canonical_tag(host = canonical_host, port = canonical_port, force_trailing_slash = nil)
+    def canonical_tag(host = canonical_host, port = canonical_port, force_trailing_slash = force_trailing_slash?)
       canonical_url = canonical_href(host, port, force_trailing_slash)
       capture do
         if CanonicalRails.opengraph_url
