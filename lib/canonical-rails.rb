@@ -19,6 +19,9 @@ module CanonicalRails
 
   mattr_accessor :protocol
   @@protocol = nil
+  
+  mattr_accessor :force_trailing_slash
+  @@force_trailing_slash = nil
 
   mattr_accessor :collection_actions
   @@collection_actions = [:index]
